@@ -16,3 +16,6 @@ class Wallet:
             self.money.append(coins.Nickel())
         for index in range(50):
             self.money.append(coins.Penny())
+
+
+       

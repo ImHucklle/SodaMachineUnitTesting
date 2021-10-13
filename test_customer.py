@@ -1,7 +1,7 @@
 import unittest 
 from customer import Customer 
-
-
+from wallet import Wallet 
+from coins import Coin
 class TestGetWalletCoin(unittest.TestCase):
     """Test for customers get_wallet_coin method"""
 
@@ -34,11 +34,21 @@ class TestGetWalletCoin(unittest.TestCase):
         self.assertIsNone(returned_none)
         
 
-class TestAddingWallet(unittest.TestCase):
-    """Pass in coins to wallet and make sure wallet index went up the correct amount"""
+
+class TestAddWalletCoins(unittest.TestCase):  
+
+
+    """Testing the add_coins_to_wallet method""" 
+
+    def  setUp(self):
     
+        self.wallet = Wallet()
 
 
+    def test_adding_wallet(self):
+        """Pass in coins to wallet and make sure wallet index went up the correct amount"""
+        self.wallet.fill_wallet()
+        self.assertEqual(len(self.money), 88)
     
 
 if __name__ == '__main__':

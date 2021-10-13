@@ -49,6 +49,12 @@ class TestAddWalletCoins(unittest.TestCase):
         """Pass in coins to wallet and make sure wallet index went up the correct amount"""
         self.customer.add_coins_to_wallet(self.coin_list)
         self.assertEqual(len(self.customer.wallet.money), 91)
+
+    def test_add_nothing_to_wallet(self):
+        """pass in a empty list and have the money list go up none"""
+        coins = []
+        self.customer.add_coins_to_wallet(coins)
+        self.assertEqual(len(self.customer.wallet.money), 88)
     
 
 

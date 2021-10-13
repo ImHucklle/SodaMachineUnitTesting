@@ -34,8 +34,9 @@ class TestGetWalletCoin(unittest.TestCase):
         self.assertIsNone(returned_none)
         
 
-    #def test_adding_wallet(self):
-        #"""Pass in coins to wallet and make sure wallet index went up the correct amount"""
+class TestAddingWallet(unittest.TestCase):
+    """Pass in coins to wallet and make sure wallet index went up the correct amount"""
+    
 
 
     

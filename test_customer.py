@@ -1,7 +1,7 @@
 import unittest 
 from customer import Customer 
 from wallet import Wallet 
-from coins import Coin
+from coins import Coin, Dime, Penny, Quarter
 from backpack import Backpack
 from cans import Can, RootBeer
 
@@ -42,13 +42,13 @@ class TestAddWalletCoins(unittest.TestCase):
     """Testing the add_coins_to_wallet method""" 
 
     def  setUp(self):
-    
-        self.wallet = Wallet()
-
+        self.customer = Customer()
+        self.coin_list = [Dime(), Quarter(), Penny()]
 
     def test_adding_wallet(self):
         """Pass in coins to wallet and make sure wallet index went up the correct amount"""
-        self.assertEqual(len(self.wallet.money), 88)
+        self.customer.add_coins_to_wallet(self.coin_list)
+        self.assertEqual(len(self.customer.wallet.money), 91)
     
 
 

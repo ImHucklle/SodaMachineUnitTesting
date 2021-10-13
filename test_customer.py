@@ -30,7 +30,13 @@ class TestGetWalletCoin(unittest.TestCase):
 
     def test_can_return_none(self):
         """Pass in a string that is non a valued coin to return none"""
+        returned_none = self.customer.get_wallet_coin('none')
+        self.assertIsNone(returned_none)
         
+
+    #def test_adding_wallet(self):
+        #"""Pass in coins to wallet and make sure wallet index went up the correct amount"""
+
 
     
 

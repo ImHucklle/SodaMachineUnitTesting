@@ -122,15 +122,37 @@ class TestCalculateCoinValue(unittest.TestCase):
         self.assertEqual(my_purchase, .41)
 
     def test_display_payment_value(self):
-        """Testing to see if method i adding and returning the correct value"""
+        """Checking to see passing an empty list returns zero"""
         my_coins = []
         my_purchase = self.soda_machine.calculate_coin_value(my_coins)
         self.assertEqual(my_purchase, .00)
 
     
+class TestGetInventorySoda(unittest.TestCase):
+    """Testing the inventory list of the soda cans"""
 
+    def setUp(self):
+        self.soda_machine = SodaMachine()
 
+    def test_inventory_cola(self):
+        """Checking to pass the Cola into the method to return as Cola"""
+        return_soda = self.soda_machine.get_inventory_soda("Cola")
+        self.assertEqual(return_soda.name, "Cola")
+    
+    def test_inventory_orange(self):
+        """Checking to pass the Orange Soda into the method to return as Orange Soda"""
+        return_soda = self.soda_machine.get_inventory_soda("Orange Soda")
+        self.assertEqual(return_soda.name, "Orange Soda")
 
+    def test_inventory_root(self):
+        """Checking to pass the Root Beer into the method to return as Root Beer"""
+        return_soda = self.soda_machine.get_inventory_soda("Root Beer")
+        self.assertEqual(return_soda.name, "Root Beer")
+
+    def test_inventory_m(self):
+        """Checking to pass a soda not on the list returns None"""
+        return_soda = self.soda_machine.get_inventory_soda("Mountain Dew")
+        self.assertEqual(return_soda, None)
 
 if __name__ == '__main__':
     unittest.main()

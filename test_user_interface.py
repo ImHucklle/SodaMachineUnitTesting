@@ -48,6 +48,7 @@ class TestTry_parse(unittest.TestCase):
         """Test to see if a word returns as a zero if it cant translate word to int"""
         returned_value = user_interface.try_parse_int('hello')
         self.assertEqual(returned_value, 0)
+
 class Testget_unique_can_name(unittest.TestCase):
     """Testing the unique can name method"""
 
@@ -73,7 +74,7 @@ class test_display_payemnt_value(unittest.TestCase):
         my_purchase = user_interface.display_payment_value(my_coins)
         self.assertEqual(my_purchase, .41)
 
-    def test_display_payment_value(self):
+    def test_display_payment_value_no_list(self):
         """Testing to see if method i adding and returning the correct value"""
         my_coins = []
         my_purchase = user_interface.display_payment_value(my_coins)

@@ -66,7 +66,7 @@ class TestAddToBackPack(unittest.TestCase):
         self.can = Can(RootBeer, .50)
 
     def test_add_can_to_backpack(self):
-        
+        """Testing to see if add can to back method adds to list in backpack"""
         self.customer.add_can_to_backpack(self.can)
         self.assertEqual(len(self.customer.backpack.purchased_cans), 1)
 

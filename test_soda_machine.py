@@ -2,6 +2,7 @@ from typing import Container
 import unittest
 from soda_machine import SodaMachine
 from coins import Quarter, Dime, Nickel, Penny
+from cans import Can, Cola
 
 
 class TestFillRegister(unittest.TestCase):
@@ -153,6 +154,19 @@ class TestGetInventorySoda(unittest.TestCase):
         """Checking to pass a soda not on the list returns None"""
         return_soda = self.soda_machine.get_inventory_soda("Mountain Dew")
         self.assertEqual(return_soda, None)
+
+class TestReturnInventory(unittest.TestCase):
+    """Testing to see if pass ing a can into method and checking the len of inventory"""
+
+    def setUp(self):
+        self.soda_machine = SodaMachine()
+
+
+    def test_return_inventory(self):
+        """Checkng to see len is now 31"""
+        new_can = Cola() 
+        inventory = self.soda_machine.return_inventory(new_can)
+        self.assertEqual(len(self.soda_machine.inventory), 31)
 
 if __name__ == '__main__':
     unittest.main()

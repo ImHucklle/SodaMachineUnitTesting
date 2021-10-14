@@ -1,4 +1,5 @@
 import unittest
+from unittest.case import TestCase
 
 import user_interface
 from cans import Cola, OrangeSoda, RootBeer
@@ -77,6 +78,40 @@ class test_display_payemnt_value(unittest.TestCase):
         my_coins = []
         my_purchase = user_interface.display_payment_value(my_coins)
         self.assertEqual(my_purchase, .00)
+
+class Test_validate_coins_selection(unittest.TestCase):
+    """Testing the method validte coins selection"""
+
+    def test_validate_coin_selection_one(self):
+        """Test to see if input 1 is true to the function"""
+        user_input_one = user_interface.validate_coin_selection(1)
+        self.assertTrue(user_input_one, (True, "Quarter"))
+    
+    def test_validate_coin_selection_two(self):
+        """Test to see if input 2 is true to the function"""
+        user_input_two = user_interface.validate_coin_selection(2)
+        self.assertTrue(user_input_two, (True, "Dime"))
+
+    def test_validate_coin_selection_three(self):
+        """Test to see if input 3 is true to the function"""
+        user_input_three = user_interface.validate_coin_selection(3)
+        self.assertTrue(user_input_three, (True, "Nickel"))
+    
+    def test_validate_coin_selection_four(self):
+        """Test to see if input 4 is true to the function"""
+        user_input_four = user_interface.validate_coin_selection(4)
+        self.assertTrue(user_input_four, (True, "Penny"))
+
+    def test_validate_coin_selection_five(self):
+        """Test to see if input 1 is true to the function"""
+        user_input_five = user_interface.validate_coin_selection(5)
+        self.assertTrue(user_input_five, (True, "Done"))
+
+    def test_validate_coin_selection_seven(self):
+        """Test to see if input 7 is true to the function"""
+        user_input_seven = user_interface.validate_coin_selection(7)
+        self.assertTrue(user_input_seven, (False, None))
+    
 
 
 

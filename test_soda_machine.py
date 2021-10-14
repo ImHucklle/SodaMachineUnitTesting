@@ -153,7 +153,19 @@ class TestGetInventorySoda(unittest.TestCase):
     def test_inventory_m(self):
         """Checking to pass a soda not on the list returns None"""
         return_soda = self.soda_machine.get_inventory_soda("Mountain Dew")
-        self.assertEqual(return_soda, None)
+
+class Testdepositcoinsintoregister(unittest.TestCase):
+    """Seeing if adding a list of coins correctly adds to register"""
+
+    def setUp(self):
+
+        self.soda_machine = SodaMachine()
+
+    def test_deposit_coins_into_register(self):
+        """Passing in 4 coins and seeing if register goes up by four"""
+        my_coins = [Penny(), Dime(), Nickel(), Quarter()]
+        self.soda_machine.deposit_coins_into_register(my_coins)
+        self.assertEqual(len(self.soda_machine.register), 92)
 
 class TestReturnInventory(unittest.TestCase):
     """Testing to see if pass ing a can into method and checking the len of inventory"""

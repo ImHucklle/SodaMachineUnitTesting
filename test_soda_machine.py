@@ -1,5 +1,7 @@
+from typing import Container
 import unittest
 from soda_machine import SodaMachine
+from coins import Quarter, Dime, Nickel, Penny
 
 
 class TestFillRegister(unittest.TestCase):
@@ -106,6 +108,29 @@ class TestDetermineChangeValue(unittest.TestCase):
         """Checking the price of the soda and the payemnt are equal"""
         equal_value = self.soda_machine.determine_change_value (1.20, 0.60)
         self.assertEqual(equal_value, 0.60)
+
+class TestCalculateCoinValue(unittest.TestCase):
+    """Testing the value of the coin types"""
+    
+    def setUp(self):
+        self.soda_machine = SodaMachine()
+        
+    def test_coin_value_total(self):
+        """Checking the total value of all four coin types is 0.41"""
+        my_coins = [Quarter(), Nickel(), Dime(), Penny()]
+        my_purchase = self.soda_machine.calculate_coin_value(my_coins)
+        self.assertEqual(my_purchase, .41)
+
+    def test_display_payment_value(self):
+        """Testing to see if method i adding and returning the correct value"""
+        my_coins = []
+        my_purchase = self.soda_machine.calculate_coin_value(my_coins)
+        self.assertEqual(my_purchase, .00)
+
+    
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,7 +1,8 @@
 import unittest
 
 import user_interface
-
+from cans import Cola, OrangeSoda, RootBeer
+from coins import Penny, Dime, Nickel, Quarter
 
 
 class TestUser_Iterface(unittest.TestCase):
@@ -43,10 +44,39 @@ class TestTry_parse(unittest.TestCase):
         self.assertEqual(returned_value, 10)
 
     def test_try_parse_int_word(self):
+        """Test to see if a word returns as a zero if it cant translate word to int"""
         returned_value = user_interface.try_parse_int('hello')
         self.assertEqual(returned_value, 0)
+class Testget_unique_can_name(unittest.TestCase):
+    """Testing the unique can name method"""
+
+    def test_get_unique_can_names(self):
+        """Test to see if adding multiple drink names to list and doesnt repeat a name"""
+        my_cans = [Cola(), OrangeSoda(), RootBeer()]
+        can_names = user_interface.get_unique_can_names(my_cans)
+        self.assertEqual(len(can_names), 3)
+
+    def test_get_unigue_names_no_list(self):
+        """Testing to see if empty list is passed in then a empty list is returned"""
+        my_list = []
+        can_names = user_interface.get_unique_can_names(my_list)
+        self.assertEqual(len(can_names), 0)
 
 
+class test_display_payemnt_value(unittest.TestCase):
+    """Testing the method display payment value"""
+
+    def test_display_payment_value(self):
+        """Testing to see if method i adding and returning the correct value"""
+        my_coins = [Quarter(), Nickel(), Dime(), Penny()]
+        my_purchase = user_interface.display_payment_value(my_coins)
+        self.assertEqual(my_purchase, .41)
+
+    def test_display_payment_value(self):
+        """Testing to see if method i adding and returning the correct value"""
+        my_coins = []
+        my_purchase = user_interface.display_payment_value(my_coins)
+        self.assertEqual(my_purchase, .00)
 
 
 
